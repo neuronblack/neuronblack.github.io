@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content>
+    <meta name="keyword" content>
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="NeuornBlack" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        BDCI2018-面向电信行业存量用户的智能套餐个性化匹配模型top3解决方案｜NeuornBlack&#39;s blog
+        
+    </title>
+
+    <link rel="canonical" href="http://neuronblack.github.io/2019/03/04/BDCI2018-面向电信行业存量用户的智能套餐个性化匹配模型top3解决方案/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+</head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('https://neuronblack.oss-cn-beijing.aliyuncs.com/WechatIMG52.jpeg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost="true" data-istags="false
+" data-ishome="false">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    NeuornBlack
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+					
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img" src="https://neuronblack.oss-cn-beijing.aliyuncs.com/timg.jpeg">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('https://neuronblack.oss-cn-beijing.aliyuncs.com/timg.jpeg')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>BDCI2018-面向电信行业存量用户的智能套餐个性化匹配模型top3解决方案</h1>
+                    
+                    <span class="meta">
+                         作者 NeuornBlack
+                        <span>
+                          日期 2019-03-04
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            BDCI2018-面向电信行业存量用户的智能套餐个性化匹配模型top3解决方案
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h2 id="1-赛题理解和数据探索"><a href="#1-赛题理解和数据探索" class="headerlink" title="1 赛题理解和数据探索"></a>1 赛题理解和数据探索</h2><h3 id="1-1赛题理解"><a href="#1-1赛题理解" class="headerlink" title="1.1赛题理解"></a>1.1赛题理解</h3><p>此题利用已有的用户属性(如个人基本信息、用户画像信等)、业务属性、消费习惯及偏好等特征，对用户进行套餐推荐，从而更好的为用户服务。</p>
+<h3 id="1-2-数据探索"><a href="#1-2-数据探索" class="headerlink" title="1.2 数据探索"></a>1.2 数据探索</h3><p>通过对数据的探索，我们发现虽然训练集给出了12类，但是999999这个类很特殊，只有2条重复数据，因此我们决定删除该类，将问题转化为11分类。同时数据中存在少量”\N”等不合理数据，需要处理。对于1_total_fee、2_total_fee、3_total_fee、4_total_fee，我们发现很多消费集中在56、76、106、136、166等，但是数据中仍存在相当大一部分比例的小数消费，如76.3，76.1等，我们推断每月出账金额是该用户套餐消费的关键。</p>
+<h2 id="2-特征工程"><a href="#2-特征工程" class="headerlink" title="2 特征工程"></a>2 特征工程</h2><h3 id="2-1-缺失值特征填充"><a href="#2-1-缺失值特征填充" class="headerlink" title="2.1 缺失值特征填充"></a>2.1 缺失值特征填充</h3><p>最终我们使用了初赛数据+复赛数据来预测测试集，原始初赛数据中，其中 age、gender、2_total_fee、3_total_fee存在缺失值”\N”，分别利用中值、众数、均值、均值填充。</p>
+<h3 id="2-2-业务特征"><a href="#2-2-业务特征" class="headerlink" title="2.2 业务特征"></a>2.2 业务特征</h3><p>1.对于age和gender字段，除了填充缺失值以外，原数据中age和gender存在字符串形式、‘\N‘形式、整数形式，这三种也能代表客户数据的收集方式所产生的不同，将三种方式做LabelEncoder编码，对于age字段，不同年龄段套餐类型存在较大差别，故映射age为[0,10,16,24,30,40,50,60，∞] 区间。<br>2.此题1_total_fee至4_total_fee为用户月出账收入，每一个用户存在很大的序列关系，故用1_total_fee减/除2_total_fee，2_total_fee减/除3_total_fee，3_total_fee减/除4_total_fee，代表用户消费的时序变化。通话时长service1_caller_time减service2_caller_time，平均缴费金额pay_num除pay_times等等</p>
+<h3 id="2-3-统计特征"><a href="#2-3-统计特征" class="headerlink" title="2.3 统计特征"></a>2.3 统计特征</h3><p>对1_total_fee至4_total_fee做统计特征，包括最大、最小、均值，对流量属性做最大、最小处理等等。</p>
+<h3 id="2-4-二值特征"><a href="#2-4-二值特征" class="headerlink" title="2.4 二值特征"></a>2.4 二值特征</h3><p>如比较online_time 和contract_time、local_caller_time和service1_caller_time、local_caller_time和service2_caller_time等等。</p>
+<h3 id="2-5-试图找出不包括通话超套餐时长的特征"><a href="#2-5-试图找出不包括通话超套餐时长的特征" class="headerlink" title="2.5 试图找出不包括通话超套餐时长的特征"></a>2.5 试图找出不包括通话超套餐时长的特征</h3><p>我们根据通话每分钟0.15元，得到如下式所示(例如)：data[‘1_total_fee_out_caller1’]=data[‘1_total_fee’]- data[‘service1_caller_time’]*0.15 data[‘1_total_fee_out_caller1_ratio’]= data[‘1_total_fee_out_caller1’] / data[‘1_total_fee’]<br>上式表明先去除通话导致的套餐费用，然后占比总出账收入作为特征。类似做2_total_fee和service2_caller_time的处理。</p>
+<h3 id="2-6-计数特征和组合计数特征"><a href="#2-6-计数特征和组合计数特征" class="headerlink" title="2.6 计数特征和组合计数特征"></a>2.6 计数特征和组合计数特征</h3><p>做了某些特征的计数特征：包括pay_num, former_complaint_num, complaint_level, online_time, age, 1_total_fee, 2_total_fee, 3_total_fee, 4_total_fee等。类似上面的处理，但特征组合有时候更能反映用户的特性，如age和1_total_fee的组合，然后考虑计数特征，因为不同年龄段的消费存在较大差距，更好的区分出不同类别。</p>
+<h3 id="2-7-词袋特征"><a href="#2-7-词袋特征" class="headerlink" title="2.7 词袋特征"></a>2.7 词袋特征</h3><p>题目中单个值可能是强特，如图所示：<br><img src="https://neuronblack.oss-cn-beijing.aliyuncs.com/%E5%9B%BE%E7%89%871.png" alt><br>由图可以看出，一个值几乎可以完美区分出99999830这个套餐，由此联想到1_total_fee至4_total_fee上，将4个月出账收入拼接起来，类似统计词向量，为防止过拟合训练集，将词频低于20的不考虑在内，并最终用稀疏矩阵存储。（理解：因为每个用户有相应的套餐费用，大部分人都是月基础费用，将其one-hot处理更能反映出用户的特征，线上提升约4k。）</p>
+<h3 id="2-8-整数特征"><a href="#2-8-整数特征" class="headerlink" title="2.8 整数特征"></a>2.8 整数特征</h3><p>观察数据发现，消费存在类似50.3，50.0，仅存在3毛钱的差别，提取出整数部分，以此来与大多数的整数消费用户达成一致，并在此基础上分别做关于整数部分的计数特征和组合计数特征。(此处线上提升约2k)</p>
+<h3 id="2-9-舍弃的特征"><a href="#2-9-舍弃的特征" class="headerlink" title="2.9 舍弃的特征"></a>2.9 舍弃的特征</h3><p>舍弃了关于1_total_fee至4_total_fee的word2vec结果，因为考虑到出账具有很强的序列关系，于是使用word2vec训练出账词向量，线下有提升，线上效果不佳。2.9.2 舍弃了关于99999830的转化率特征，做关于99999830套餐的转化率，导致结果有偏 。</p>
+<h2 id="3-初赛数据的使用"><a href="#3-初赛数据的使用" class="headerlink" title="3  初赛数据的使用"></a>3  初赛数据的使用</h2><p>我们对初赛数据和复赛数据进行了K-S检验，发现初赛数据与复赛数据的p值较低，所以初赛数据与复赛数据不完全属于同一分布。这也就导致了使用先拼接数据再去提取特征的数据训练出的模型不是很理想。我们尝试使用一个分类器去区分初赛和复赛数据，同样效果不是很理想，说明初赛数据中依旧包含了有用的信息。于是我们团队以复赛数据为基础，复赛所作特征如计数特征，初赛数据直接拼接该特征，这样就保证了初复赛数据的分布相对的一致性。（线上提升约2k）</p>
+<h2 id="4-特征选择、模型选择和融合"><a href="#4-特征选择、模型选择和融合" class="headerlink" title="4  特征选择、模型选择和融合"></a>4  特征选择、模型选择和融合</h2><p>在特征选择方面，去除互相关系数大于0.95的特征（保留其中一个）、去除缺失值大于90的特征、去除方差为0的特征。<br>我们团队最终选择LightGBM树模型，因为运算速度快、精度高，在参数选择方面，由于该题对应准确性最优，参照LightGBM文档[1]，调大max_bin以及num_leaves。<br>在模型融合方面，模型融合能够加强模型泛化能力，我们分别单用复赛训练集预测复赛测试集得到概率值、初赛+复赛训练集预测复赛测试集得到概率值，然后将概率值以一定的比例加权，加权系数由线下交叉验证分数确定，得到融合以后的结果。</p>
+<h2 id="5-后处理"><a href="#5-后处理" class="headerlink" title="5 后处理"></a>5 后处理</h2><p>如下图所示：<br><img src="https://neuronblack.oss-cn-beijing.aliyuncs.com/%E5%9B%BE%E7%89%872.png" alt><br>从图可看出，99999830和89950166套餐分错的类别最多，线下f1分数不到0.3，于是我们团队想到单独训练一个二分类模型，在此基础上覆盖前面的融合结果，对应二分类，可以使用前面多分类丢弃的特征即转化率特征，最终得到二分类结果并替代原多分类结果，得到最终的模型结果。(二分类想法线上提升约3k。)</p>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    
+                    <li class="next">
+                        <a href="/2019/03/03/⼈工智能社会保险反欺诈分析top3解决方案/" data-toggle="tooltip" data-placement="top" title="⼈工智能社会保险反欺诈分析top3解决方案">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-赛题理解和数据探索"><span class="toc-text">1 赛题理解和数据探索</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1赛题理解"><span class="toc-text">1.1赛题理解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-数据探索"><span class="toc-text">1.2 数据探索</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-特征工程"><span class="toc-text">2 特征工程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-缺失值特征填充"><span class="toc-text">2.1 缺失值特征填充</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-业务特征"><span class="toc-text">2.2 业务特征</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-统计特征"><span class="toc-text">2.3 统计特征</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-二值特征"><span class="toc-text">2.4 二值特征</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-试图找出不包括通话超套餐时长的特征"><span class="toc-text">2.5 试图找出不包括通话超套餐时长的特征</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-计数特征和组合计数特征"><span class="toc-text">2.6 计数特征和组合计数特征</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-7-词袋特征"><span class="toc-text">2.7 词袋特征</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-8-整数特征"><span class="toc-text">2.8 整数特征</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-9-舍弃的特征"><span class="toc-text">2.9 舍弃的特征</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-初赛数据的使用"><span class="toc-text">3  初赛数据的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-特征选择、模型选择和融合"><span class="toc-text">4  特征选择、模型选择和融合</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-后处理"><span class="toc-text">5 后处理</span></a></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <div style="margin-top: 20px;">
+                    <h5 class="text-center">FRIENDS</h5>
+                    <ul class="list-inline text-center">
+                        
+                        <li><a href="https://www.zhihu.com/people/jin-chen-yu-71-44/activities">Campsa‘s zhihu</a></li>
+                        
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/ge-chen-yang-83">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://github.com/NeuronBlack">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; NeuornBlack 2019
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://neuronblack.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="">
+</body>
+
+</html>
