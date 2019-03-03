@@ -177,7 +177,7 @@
 <p>(f)FTR51不考虑业务含义，若其为机构与就诊部门分类等信息，则拆分为A、B、C、E、D 及其组合模块来聚合统计(全范围统计、时间滑窗统计和分段时间统计等)最常参保的模块和不同种类数，因为一般欺诈参保对象的医疗机构多于普通参保对象。</p>
 <p>(g)FTR51若其为药物处方，可以统计每月的买药次数和种类、总的买药次数和种类、当月与上个月买药次数差的绝对值、当月与上月相比的新增药物种类、当月与上月相比的减少药物种类、每月买药次数均值与方差统计。</p>
 <p>(h)通过观察FTR51，将其每个逗号隔开的字符串视为一个单词，然后基于时间颗粒度来统 计每个单词出现的次数、平均值、标准差等统计特征形成自定义的词频统计值，然后基于词频统计值进行LDA(LatentDirichletAllocation)进行文本主题分类生成一个描述向量作为 特征。</p>
-<h3 id="2-2特征工程"><a href="#2-2特征工程" class="headerlink" title="2.2特征工程"></a>2.2特征工程</h3><p>1.FTR0-FTR50特征⼯程</p>
+<h3 id="2-2-特征工程"><a href="#2-2-特征工程" class="headerlink" title="2.2 特征工程"></a>2.2 特征工程</h3><p>1.FTR0-FTR50特征⼯程</p>
 <p>该部分数据为脱敏敏数据，故我们⽆无法了了解实际背后的业务含义，因此我们只能从特征的⻆度进行处理。下⾯面详细阐述该部分数据的特征⼯程建立:</p>
 <p>(a)我们对FTR0-FTR50经常数据可视化，分析出其包含⼤量的0，FTR0到FTR50的0值⽐例如图2-1 ,对于⼀些0值⽐例⾼达99%的列我们可以考虑删除。此外在进⾏求平均值等统计值，计算时，也要考虑着0值⽐例过多的影响。<br><img src="https://neuronblack.oss-cn-beijing.aliyuncs.com/QQ20190303-230229.png" alt></p>
 <p>(b)团队将FTR0-FTR50删除的部分特征后，剔除⽅方差较⼩小(实际特征没有区分度)，以及经过corr热力图之后，删除相关性大于90%的特征。下图为相关性热力图：<br><img src="https://neuronblack.oss-cn-beijing.aliyuncs.com/QQ20190303-231811.png" alt></p>
@@ -195,7 +195,7 @@
 <p>(c)按⾃自然⽉月时间分段统计参保就诊总次数，然后取其最⼤大值作为特征。 (d)按⾃自然天时间分段统计参保就诊总次数，然后取其最⼤大值作为特征。</p>
 <p>(e)按时间窗⼝口进⾏行行滑窗——3D、7D、15D、30D、60D，统计参保就诊总次数，然后取其 最⼤大值作为特征。这可以过滤到在某⼀一⼩小时间段内参保频率很⾼高的参保⼈人员，从业务背景 上分析，这类⼈人员很有可能就是欺诈⼈人员。</p>
 <p>(f)对于就诊次数统计不不同时间颗粒度下的就诊连续度变化指标:例如，以3天的时间颗粒分段来对就诊次数进行采样，如图所示，其中0代表该人员在此统计时间段内没有结算记录;然后就可以形成⼀个连续的非0二维数组，然后计算每个子数组的⻓度，并以此为基础来计算波动标准差，将其作为就诊连续度变化指标。当参保人员非0子数组个数不大于1，此时⽤负数对该指标特征填充，可区分此类参保人员与其他类参保⼈人员。该指标计算原理理如图:<br><img src="https://neuronblack.oss-cn-beijing.aliyuncs.com/QQ20190303-233815.png" alt><br>通过查看分布发现，该指标特征在欺诈⼈员和⾮欺诈人员的分布明显不同。如图所示，横轴1代表欺诈⼈员、0代表⾮欺诈人员，纵轴为就诊连续度变化指标值。可以看到，欺诈⼈员的就诊连续度范围更多，也表现了欺诈⼈员行为多样化的特点;⽽非欺诈人员这一指标主要集中在0-1之间，相对集中，即⾏为一般化。<br><img src="https://neuronblack.oss-cn-beijing.aliyuncs.com/QQ20190303-233823.png" alt></p>
-<h2 id="3-模型"><a href="#3-模型" class="headerlink" title="3.模型"></a>3.模型</h2><h3 id="3-1模型细节"><a href="#3-1模型细节" class="headerlink" title="3.1模型细节"></a>3.1模型细节</h3><p>团队成员采用不同特征的相同模型构造模型。利用不同特征之间的差异性，将输出结果进行bagging。<br><img src="https://neuronblack.oss-cn-beijing.aliyuncs.com/QQ20190303-234553.png" alt></p>
+<h2 id="3-模型"><a href="#3-模型" class="headerlink" title="3.模型"></a>3.模型</h2><h3 id="3-1-模型细节"><a href="#3-1-模型细节" class="headerlink" title="3.1 模型细节"></a>3.1 模型细节</h3><p>团队成员采用不同特征的相同模型构造模型。利用不同特征之间的差异性，将输出结果进行bagging。<br><img src="https://neuronblack.oss-cn-beijing.aliyuncs.com/QQ20190303-234553.png" alt></p>
 
                 <hr>
                 
@@ -223,7 +223,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-赛题数据理理解"><span class="toc-text">1. 赛题数据理理解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-数据整体介绍"><span class="toc-text">1.1 数据整体介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-数据初步分析"><span class="toc-text">1.2 数据初步分析</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-特征⼯工程"><span class="toc-text">2.特征⼯工程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-思路简介"><span class="toc-text">2.1 思路简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2特征工程"><span class="toc-text">2.2特征工程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-模型"><span class="toc-text">3.模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1模型细节"><span class="toc-text">3.1模型细节</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-赛题数据理理解"><span class="toc-text">1. 赛题数据理理解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-数据整体介绍"><span class="toc-text">1.1 数据整体介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-数据初步分析"><span class="toc-text">1.2 数据初步分析</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-特征⼯工程"><span class="toc-text">2.特征⼯工程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-思路简介"><span class="toc-text">2.1 思路简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-特征工程"><span class="toc-text">2.2 特征工程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-模型"><span class="toc-text">3.模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-模型细节"><span class="toc-text">3.1 模型细节</span></a></li></ol></li></ol>
                 </div>
             </div>
         </div>
