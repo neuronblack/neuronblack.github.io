@@ -165,7 +165,7 @@
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
                 <h2 id="1-赛题数据理理解"><a href="#1-赛题数据理理解" class="headerlink" title="1. 赛题数据理理解"></a>1. 赛题数据理理解</h2><h3 id="1-1-数据整体介绍"><a href="#1-1-数据整体介绍" class="headerlink" title="1.1 数据整体介绍"></a>1.1 数据整体介绍</h3><p>本赛题中训练集为15000个参保对象的共计1368146条历史结算明细数据， 其中包括参保⼈人ID、流⽔水号、50个脱敏敏数值特征(FTR0-FTR50)、FTR51⽂文 本特征和发⽣生时间特征，共计52维有效数据以及是否为欺诈参保⼈人的LABEL， 如图1所示。测试集则为2500个参保对象的23万多历史数据，然后对这些参保 对象进⾏行行是否欺诈分类预测，模型预测能⼒力力以AUC为指标来进⾏行行评定。下图1- 1为数据概况。<br><img src="https://neuronblack.oss-cn-beijing.aliyuncs.com/QQ20190303-225154.png" alt></p>
-<h3 id="1-2数据初步分析"><a href="#1-2数据初步分析" class="headerlink" title="1.2数据初步分析"></a>1.2数据初步分析</h3><p>(a):时间:数据时间跨度为2015年3月至2016年2月，如图1-2，可以发现从上半年各个月份就 诊次数趋于平稳，从九月份开始就诊次数骤然增加，并且保持了较高就诊次数直到来年的 二月份才有轻微的下降</p>
+<h3 id="1-2-数据初步分析"><a href="#1-2-数据初步分析" class="headerlink" title="1.2 数据初步分析"></a>1.2 数据初步分析</h3><p>(a):时间:数据时间跨度为2015年3月至2016年2月，可以发现从上半年各个月份就 诊次数趋于平稳，从九月份开始就诊次数骤然增加，并且保持了较高就诊次数直到来年的 二月份才有轻微的下降</p>
 <p>(b)脱敏字段:FTR0-FTR50为脱敏的标准化后数据，且很稀疏——包含大量的0，初步构想 删除大量为0的特征。</p>
 <p>(c)无用特征:字段PPLYNO为交易涉别号，为脱敏数据，在实际中没有任何参考价值，故删 除</p>
 <p>(d)重点特征FTR51:FTR51特征由于含有固定的ABCED，可能为某特定含义组合，如药物 SKU或就诊内容和机构分类等可以进行文本分类、字符串拆分统计等分析处理。</p>
@@ -177,9 +177,7 @@
 <p>(f)FTR51不考虑业务含义，若其为机构与就诊部门分类等信息，则拆分为A、B、C、E、D 及其组合模块来聚合统计(全范围统计、时间滑窗统计和分段时间统计等)最常参保的模 块和不同种类数，因为一般欺诈参保对象的医疗机构多于普通参保对象。</p>
 <p>(g)FTR51若其为药物处方，可以统计每月的买药次数和种类、总的买药次数和种类、当月与 上个月买药次数差的绝对值、当月与上月相比的新增药物种类、当月与上月相比的减少药 物种类、每月买药次数均值与方差统计。</p>
 <p>(h)通过观察FTR51，将其每个逗号隔开的字符串视为一个单词，然后基于时间颗粒度来统 计每个单词出现的次数、平均值、标准差等统计特征形成自定义的词频统计值，然后基于词频统计值进行LDA(LatentDirichletAllocation)进行文本主题分类生成一个描述向量作为 特征。</p>
-<h3 id="2-2特征工程"><a href="#2-2特征工程" class="headerlink" title="2.2特征工程"></a>2.2特征工程</h3><ol>
-<li>FTR0-FTR50特征⼯工程</li>
-</ol>
+<h3 id="2-2特征工程"><a href="#2-2特征工程" class="headerlink" title="2.2特征工程"></a>2.2特征工程</h3><p>1.FTR0-FTR50特征⼯工程</p>
 <p>该部分数据为脱敏敏数据，故我们⽆无法了了解实际背后的业务含义，因此我们只能从特征<br>的⻆角度进⾏行行处理理。下⾯面详细阐述该部分数据的特征⼯工程建⽴立:</p>
 <p>(a)我们对FTR0-FTR50经常数据可视化，分析出其包含⼤大量量的0，FTR0到FTR50的0值⽐比 例例如图2-1 ,对于⼀一些0值⽐比例例⾼高达99%的列列我们可以考虑删除。此外在进⾏行行求额平均值等统 计值计算时，也要考虑着0值⽐比例例过多的影响。<br><img src="https://neuronblack.oss-cn-beijing.aliyuncs.com/QQ20190303-230229.png" alt></p>
 
@@ -209,7 +207,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-赛题数据理理解"><span class="toc-text">1. 赛题数据理理解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-数据整体介绍"><span class="toc-text">1.1 数据整体介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2数据初步分析"><span class="toc-text">1.2数据初步分析</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-特征⼯工程"><span class="toc-text">2.特征⼯工程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-思路简介"><span class="toc-text">2.1 思路简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2特征工程"><span class="toc-text">2.2特征工程</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-赛题数据理理解"><span class="toc-text">1. 赛题数据理理解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-数据整体介绍"><span class="toc-text">1.1 数据整体介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-数据初步分析"><span class="toc-text">1.2 数据初步分析</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-特征⼯工程"><span class="toc-text">2.特征⼯工程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-思路简介"><span class="toc-text">2.1 思路简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2特征工程"><span class="toc-text">2.2特征工程</span></a></li></ol></li></ol>
                 </div>
             </div>
         </div>
