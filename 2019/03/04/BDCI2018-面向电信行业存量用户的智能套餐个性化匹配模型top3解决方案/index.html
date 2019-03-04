@@ -177,7 +177,7 @@
 <h3 id="2-9-舍弃的特征"><a href="#2-9-舍弃的特征" class="headerlink" title="2.9 舍弃的特征"></a>2.9 舍弃的特征</h3><p>舍弃了关于1_total_fee至4_total_fee的word2vec结果，因为考虑到出账具有很强的序列关系，于是使用word2vec训练出账词向量，线下有提升，线上效果不佳。2.9.2 舍弃了关于99999830的转化率特征，做关于99999830套餐的转化率，导致结果有偏 。</p>
 <h2 id="3-初赛数据的使用"><a href="#3-初赛数据的使用" class="headerlink" title="3  初赛数据的使用"></a>3  初赛数据的使用</h2><p>我们对初赛数据和复赛数据进行了K-S检验，发现初赛数据与复赛数据的p值较低，所以初赛数据与复赛数据不完全属于同一分布。这也就导致了使用先拼接数据再去提取特征的数据训练出的模型不是很理想。我们尝试使用一个分类器去区分初赛和复赛数据，同样效果不是很理想，说明初赛数据中依旧包含了有用的信息。于是我们团队以复赛数据为基础，复赛所作特征如计数特征，初赛数据直接拼接该特征，这样就保证了初复赛数据的分布相对的一致性。（线上提升约2k）</p>
 <h2 id="4-特征选择、模型选择和融合"><a href="#4-特征选择、模型选择和融合" class="headerlink" title="4  特征选择、模型选择和融合"></a>4  特征选择、模型选择和融合</h2><p>在特征选择方面，去除互相关系数大于0.95的特征（保留其中一个）、去除缺失值大于90的特征、去除方差为0的特征。<br>我们团队最终选择LightGBM树模型，因为运算速度快、精度高，在参数选择方面，由于该题对应准确性最优，参照LightGBM文档[1]，调大max_bin以及num_leaves。<br>在模型融合方面，模型融合能够加强模型泛化能力，我们分别单用复赛训练集预测复赛测试集得到概率值、初赛+复赛训练集预测复赛测试集得到概率值，然后将概率值以一定的比例加权，加权系数由线下交叉验证分数确定，得到融合以后的结果。</p>
-<h2 id="5-后处理"><a href="#5-后处理" class="headerlink" title="5 后处理"></a>5 后处理</h2><p>如下图所示：<br><img src="https://neuronblack.oss-cn-beijing.aliyuncs.com/%E5%9B%BE%E7%89%871.png" alt><br>从图可看出，99999830和89950166套餐分错的类别最多，线下f1分数不到0.3，于是我们团队想到单独训练一个二分类模型，在此基础上覆盖前面的融合结果，对应二分类，可以使用前面多分类丢弃的特征即转化率特征，最终得到二分类结果并替代原多分类结果，得到最终的模型结果。(二分类想法线上提升约3k。),下图为二分类转户率的对比：<br>!()[<a href="https://neuronblack.oss-cn-beijing.aliyuncs.com/%E5%9B%BE%E7%89%872.png]" target="_blank" rel="noopener">https://neuronblack.oss-cn-beijing.aliyuncs.com/%E5%9B%BE%E7%89%872.png]</a></p>
+<h2 id="5-后处理"><a href="#5-后处理" class="headerlink" title="5 后处理"></a>5 后处理</h2><p>如下图所示：<br><img src="https://neuronblack.oss-cn-beijing.aliyuncs.com/%E5%9B%BE%E7%89%871.png" alt><br>从图可看出，99999830和89950166套餐分错的类别最多，线下f1分数不到0.3，于是我们团队想到单独训练一个二分类模型，在此基础上覆盖前面的融合结果，对应二分类，可以使用前面多分类丢弃的特征即转化率特征，最终得到二分类结果并替代原多分类结果，得到最终的模型结果。(二分类想法线上提升约3k。),下图为二分类转户率的对比：<br><img src="https://neuronblack.oss-cn-beijing.aliyuncs.com/%E5%9B%BE%E7%89%872.png" alt></p>
 
                 <hr>
                 
@@ -238,6 +238,8 @@
                     <ul class="list-inline text-center">
                         
                         <li><a href="https://www.zhihu.com/people/jin-chen-yu-71-44/activities">Campsa‘s zhihu</a></li>
+                        
+                        <li><a href="https://www.zhihu.com/people/chen-chen-77-79-35">Snow&#39;s zhihu</a></li>
                         
                     </ul>
                 </div>
