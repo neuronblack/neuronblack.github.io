@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        NeuornBlack&#39;s blog
+        elo merchant category recommendation后处理新思路｜NeuornBlack&#39;s blog
         
     </title>
 
-    <link rel="canonical" href="http://neuronblack.github.io/archives/">
+    <link rel="canonical" href="http://neuronblack.github.io/2019/03/04/elo-merchant-category-recommendation后处理新思路/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -43,7 +43,7 @@
 <!-- hack iOS CSS :active style -->
 <body ontouchstart="" class="animated fadeIn">
 <!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost="false" data-istags="false
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost="true" data-istags="false
 " data-ishome="false">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -116,190 +116,133 @@
 
 <!-- Main Content -->
 
+<!--only post-->
 
-<!-- Page Header -->
-<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 visible-xs-block visible-sm-block">
-    <div class="row">
-        <header class="intro-header">
-            <div class="container">
-                <div class="site-heading text-center">
-                    <div class="about-me">
-                        <!--移动端头部显示-->
-                        <img src="https://neuronblack.oss-cn-beijing.aliyuncs.com/WechatIMG52.jpeg">
-                        <h5><a href="/about/">NeuornBlack</a></h5>
-                        <p>stay hungry stay foolish</p>
+
+<img class="wechat-title-img" src="https://neuronblack.oss-cn-beijing.aliyuncs.com/timg.jpeg">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('https://neuronblack.oss-cn-beijing.aliyuncs.com/timg.jpeg')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>elo merchant category recommendation后处理新思路</h1>
+                    
+                    <span class="meta">
+                         作者 NeuornBlack
+                        <span>
+                          日期 2019-03-04
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
                     </div>
                 </div>
             </div>
-        </header>
+        </div>
     </div>
-</div>
-<!-- Main Content -->
-<div class="container custom-haojen-container">
-    <!-- Post Container -->
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-1 col-md-8 col-md-offset-1 col-sm-12 col-xs-12 post-container">
-            <!-- Main Content -->
-
-
-
-<div class="post-preview " style="background-image: url('')">
-    <a href="/2019/03/04/elo-merchant-category-recommendation后处理新思路/">
-        <h2 class="post-title">
+    <div class="post-title-haojen">
+        <span>
             elo merchant category recommendation后处理新思路
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2019-03-04
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                kaggle上面的elo比赛私榜放出后，使用了后处理的队伍基本全部翻车，我们团队为了稳健，在选择最终文件时选择了一份未经后处理的和一份经过后处理的结果，最终未经后处理的文件拿下了27/4128的成绩，成功获得一枚银牌，虽然未用二分类进行改值，但是实际上我们的成绩融入了二分类的结果，具体使用方式可..
-            </p>
-        </div>
-    </a>
+        </span>
+    </div>
+</header>
 
-</div>
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <p>kaggle上面的elo比赛私榜放出后，使用了后处理的队伍基本全部翻车，我们团队为了稳健，在选择最终文件时选择了一份未经后处理的和一份经过后处理的结果，最终未经后处理的文件拿下了27/4128的成绩，成功获得一枚银牌，虽然未用二分类进行改值，但是实际上我们的成绩融入了二分类的结果，具体使用方式可以参考我<a href="https://zhuanlan.zhihu.com/p/58143123" target="_blank" rel="noopener">队友的知乎</a>。虽然这次比赛中后处理不是很好的操作方式，但是不能否认后处理是个很好的方法，在[联通】(<a href="https://neuronblack.github.io/2019/03/04/BDCI2018-%E9%9D%A2%E5%90%91%E7%94%B5%E4%BF%A1%E8%A1%8C%E4%B8%9A%E5%AD%98%E9%87%8F%E7%94%A8%E6%88%B7%E7%9A%84%E6%99%BA%E8%83%BD%E5%A5%97%E9%A4%90%E4%B8%AA%E6%80%A7%E5%8C%96%E5%8C%B9%E9%85%8D%E6%A8%A1%E5%9E%8Btop3%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/)的比赛中我们团队使用了后处理方案，在特征工程做的不足的情况下，依旧取得了第三名的成绩。">https://neuronblack.github.io/2019/03/04/BDCI2018-%E9%9D%A2%E5%90%91%E7%94%B5%E4%BF%A1%E8%A1%8C%E4%B8%9A%E5%AD%98%E9%87%8F%E7%94%A8%E6%88%B7%E7%9A%84%E6%99%BA%E8%83%BD%E5%A5%97%E9%A4%90%E4%B8%AA%E6%80%A7%E5%8C%96%E5%8C%B9%E9%85%8D%E6%A8%A1%E5%9E%8Btop3%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/)的比赛中我们团队使用了后处理方案，在特征工程做的不足的情况下，依旧取得了第三名的成绩。</a></p>
+<p>elo比赛时候我使用Siamese lightgbm进行了改值，在公榜上面取得大幅度的提升，Siamese lightgbm是我自己取的名字，他的思路源自于Siamese network，这个网络同时接收两个样本输入，输出为两个样本的相似度，示意图如下：<br><img src="https://neuronblack.oss-cn-beijing.aliyuncs.com/2528310-f1c3bce8c895ba1d..jpg" alt><br>这个网络两个输入的样本共享了权重，还有一种思路就是两个样本不共享权重进行计算，这种网络被称为伪孪生网络。由于在这种题目上面神经网络无法达到lgb等树型模型的准确度，所以用同样的思路，拼接两个样本作为新的输入样本，若两个样本都大于或者小于-33标签至为1，反之则为0。样本之间如何组合属于指派问题的范畴，所以可以使用经典的匈牙利算法进行组合。对于这种数据我们可以计算下两个样本之间的距离作为新的特征进行拼接，五折交叉验证时候，每次测试集都会和训练集的数据进行相似度计算，五次预测分别使用五批不同的异常样本进行比对，绘制PR曲线图，选择合适的概率阈值，将高于阈值的样本判定为异常样本，对原始回归模型输出的结果进行直接的改值。</p>
 
-<hr>
+                <hr>
+                
 
-
-
-<div class="post-preview " style="background-image: url('')">
-    <a href="/2019/03/04/BDCI2018-面向电信行业存量用户的智能套餐个性化匹配模型top3解决方案/">
-        <h2 class="post-title">
-            BDCI2018-面向电信行业存量用户的智能套餐个性化匹配模型top3解决方案
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2019-03-04
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                1 赛题理解和数据探索1.1赛题理解此题利用已有的用户属性(如个人基本信息、用户画像信等)、业务属性、消费习惯及偏好等特征，对用户进行套餐推荐，从而更好的为用户服务。
-1.2 数据探索通过对数据的探索，我们发现虽然训练集给出了12类，但是999999这个类很特殊，只有2条重复数据，因此我们决定删..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview " style="background-image: url('')">
-    <a href="/2019/03/03/⼈工智能社会保险反欺诈分析top3解决方案/">
-        <h2 class="post-title">
-            ⼈工智能社会保险反欺诈分析top3解决方案
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2019-03-03
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                1. 赛题数据理理解1.1 数据整体介绍本赛题中训练集为15000个参保对象的共计1368146条历史结算明细数据， 其中包括参保⼈人ID、流⽔水号、50个脱敏敏数值特(FTR0-FTR50)、FTR51⽂本特征和发⽣时间特征，共计52维有效数据以及是否为欺诈参保⼈人的LABEL，如图1所示。测..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-
-<!-- 翻页 pager -->
-
-<ul class="pager">
-    
-    
-</ul>
-
-
-        </div>
-        <!-- Sidebar Container -->
-        <div class="
-                col-lg-3 col-lg-offset-0
-                col-md-3 col-md-offset-0
-                col-sm-12
-                col-xs-12
-                sidebar-container
-            ">
-
-            <!-- About Me -->
-            <section class="visible-md visible-lg" style="padding: 0 18px">
-                <div class="short-about">
-                    <!--侧边栏头像-->
+                <ul class="pager">
                     
-                    <img src="https://neuronblack.oss-cn-beijing.aliyuncs.com/WechatIMG52.jpeg">
                     
-                    <h5><a href="/about/">NeuornBlack</a></h5>
+                    <li class="next">
+                        <a href="/2019/03/04/BDCI2018-面向电信行业存量用户的智能套餐个性化匹配模型top3解决方案/" data-toggle="tooltip" data-placement="top" title="BDCI2018-面向电信行业存量用户的智能套餐个性化匹配模型top3解决方案">Next Post &rarr;</a>
+                    </li>
                     
-                    <p>stay hungry stay foolish</p>
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
                     
-                    <hr>
-                    <!-- SNS Link 社交 -->
-                    <ul class="list-inline">
-                        
-                        
-                        
-                        <li>
-                            <a target="_blank" href="https://www.zhihu.com/people/ge-chen-yang-83">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa  fa-stack-1x fa-inverse">知</i>
-                                        </span>
-                            </a>
-                        </li>
-                        
+                </div>
+            </div>
+        </div>
 
-                        
+        <div class="row">
+            <!-- Sidebar Container -->
 
-                        
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
 
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
                         
-                        <li>
-                            <a target="_blank" href="https://github.com/NeuronBlack">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                                        </span>
-                            </a>
-                        </li>
-                        
+                    </div>
+                </section>
+                
 
+                <!-- Friends Blog -->
+                
+                <div style="margin-top: 20px;">
+                    <h5 class="text-center">FRIENDS</h5>
+                    <ul class="list-inline text-center">
+                        
+                        <li><a href="https://www.zhihu.com/people/jin-chen-yu-71-44/activities">Campsa‘s zhihu</a></li>
+                        
+                        <li><a href="https://www.zhihu.com/people/chen-chen-77-79-35">Snow&#39;s zhihu</a></li>
                         
                     </ul>
                 </div>
-            </section>
-
-            <!-- Featured Tags  标签 -->
-            
-            <section>
-                <div class="tags">
-                    
-                </div>
-            </section>
-            
-
-            
-            <hr>
-            <h5 style="text-align: center;">Friends</h5>
-            <ul class="list-inline" style="text-align: center;">
                 
-                <li><a href="https://www.zhihu.com/people/jin-chen-yu-71-44/activities" target="_blank">Campsa‘s zhihu</a></li>
-                
-                <li><a href="https://www.zhihu.com/people/chen-chen-77-79-35" target="_blank">Snow&#39;s zhihu</a></li>
-                
-            </ul>
-            
-
+            </div>
         </div>
+
     </div>
-</div>
+</article>
+
+
+
+
+
+
 
 <!-- Footer -->
 <!-- Footer -->
