@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        elo merchant category recommendation后处理新思路｜NeuornBlack&#39;s blog
+        深度学习经历｜NeuornBlack&#39;s blog
         
     </title>
 
-    <link rel="canonical" href="http://neuronblack.github.io/2019/03/04/elo-merchant-category-recommendation后处理新思路/">
+    <link rel="canonical" href="http://neuronblack.github.io/2019/03/06/超分辨率研究笔记/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -136,12 +136,12 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>elo merchant category recommendation后处理新思路</h1>
+                    <h1>深度学习经历</h1>
                     
                     <span class="meta">
                          作者 NeuornBlack
                         <span>
-                          日期 2019-03-04
+                          日期 2019-03-06
                          </span>
                     </span>
                     <div class="tags text-center">
@@ -153,7 +153,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            elo merchant category recommendation后处理新思路
+            深度学习经历
         </span>
     </div>
 </header>
@@ -164,21 +164,16 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <p>kaggle上面的elo比赛私榜放出后，使用了后处理的队伍基本全部翻车，我们团队为了稳健，在选择最终文件时选择了一份未经后处理的和一份经过后处理的结果，最终未经后处理的文件拿下了27/4128的成绩，成功获得一枚银牌，虽然未用二分类进行改值，但是实际上我们的成绩融入了二分类的结果，具体使用方式可以参考我<a href="https://zhuanlan.zhihu.com/p/58143123" target="_blank" rel="noopener">队友的知乎</a>。虽然这次比赛中后处理不是很好的操作方式，但是不能否认后处理是个很好的方法，在<a href="https://neuronblack.github.io/2019/03/04/BDCI2018-%E9%9D%A2%E5%90%91%E7%94%B5%E4%BF%A1%E8%A1%8C%E4%B8%9A%E5%AD%98%E9%87%8F%E7%94%A8%E6%88%B7%E7%9A%84%E6%99%BA%E8%83%BD%E5%A5%97%E9%A4%90%E4%B8%AA%E6%80%A7%E5%8C%96%E5%8C%B9%E9%85%8D%E6%A8%A1%E5%9E%8Btop3%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">联通</a>的比赛中我们团队使用了后处理方案，在特征工程做的不足的情况下，依旧取得了第三名的成绩。</p>
-<p>elo比赛时候我使用Siamese lightgbm进行了改值，在公榜上面取得大幅度的提升，Siamese lightgbm是我自己取的名字，他的思路源自于Siamese network，这个网络同时接收两个样本输入，输出为两个样本的相似度，示意图如下：<br><img src="https://neuronblack.oss-cn-beijing.aliyuncs.com/2528310-f1c3bce8c895ba1d..jpg" alt><br>这个网络两个输入的样本共享了权重，还有一种思路就是两个样本不共享权重进行计算，这种网络被称为伪孪生网络。由于在这种题目上面神经网络无法达到lgb等树型模型的准确度，所以用同样的思路，拼接两个样本作为新的输入样本，若两个样本都大于或者小于-33标签至为1，反之则为0。样本之间如何组合属于指派问题的范畴，所以可以使用经典的匈牙利算法进行组合。对于这种数据我们可以计算下两个样本之间的距离作为新的特征进行拼接，五折交叉验证时候，每次测试集都会和训练集的数据进行相似度计算，五次预测分别使用五批不同的异常样本进行比对，绘制PR曲线图，选择合适的概率阈值，将高于阈值的样本判定为异常样本，对原始回归模型输出的结果进行直接的改值。</p>
+                <p>以mse作为损失函数，以PSNR作为评价指标，构建较为简单的网络，效果不佳，参考论文后发现，在该类任务中，颜色等特征较为重要，所以不能随便使用batch normalization，会破坏原本的颜色分布，所以在使用batch normalization时需要将之前的特征图用残差块传到下面去，这样结合了bn的优点，又不影响图片的色彩特征，mse作为指标会丢失细节，所以改用GAN结构，生成器将低分辨率的图像转化为高分辨率图像，对抗网络用来分类原始的高分辨率图像和生成的高分辨率图像。</p>
 
                 <hr>
                 
 
                 <ul class="pager">
                     
-                    <li class="previous">
-                        <a href="/2019/03/06/超分辨率研究笔记/" data-toggle="tooltip" data-placement="top" title="深度学习经历">&larr; Previous Post</a>
-                    </li>
-                    
                     
                     <li class="next">
-                        <a href="/2019/03/04/BDCI2018-面向电信行业存量用户的智能套餐个性化匹配模型top3解决方案/" data-toggle="tooltip" data-placement="top" title="BDCI2018-面向电信行业存量用户的智能套餐个性化匹配模型top3解决方案">Next Post &rarr;</a>
+                        <a href="/2019/03/04/elo-merchant-category-recommendation后处理新思路/" data-toggle="tooltip" data-placement="top" title="elo merchant category recommendation后处理新思路">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
