@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        NeuornBlack&#39;s blog
+        深度学习经历｜NeuornBlack&#39;s blog
         
     </title>
 
-    <link rel="canonical" href="http://neuronblack.github.io/archives/2019/03/">
+    <link rel="canonical" href="http://neuronblack.github.io/2019/03/06/深度学习经历/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -43,7 +43,7 @@
 <!-- hack iOS CSS :active style -->
 <body ontouchstart="" class="animated fadeIn">
 <!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost="false" data-istags="false
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost="true" data-istags="false
 " data-ishome="false">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -116,214 +116,135 @@
 
 <!-- Main Content -->
 
+<!--only post-->
 
-<!-- Page Header -->
-<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 visible-xs-block visible-sm-block">
-    <div class="row">
-        <header class="intro-header">
-            <div class="container">
-                <div class="site-heading text-center">
-                    <div class="about-me">
-                        <!--移动端头部显示-->
-                        <img src="https://neuronblack.oss-cn-beijing.aliyuncs.com/WechatIMG52.jpeg">
-                        <h5><a href="/about/">NeuornBlack</a></h5>
-                        <p>stay hungry stay foolish</p>
+
+<img class="wechat-title-img" src="https://neuronblack.oss-cn-beijing.aliyuncs.com/timg.jpeg">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('https://neuronblack.oss-cn-beijing.aliyuncs.com/timg.jpeg')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>深度学习经历</h1>
+                    
+                    <span class="meta">
+                         作者 NeuornBlack
+                        <span>
+                          日期 2019-03-06
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
                     </div>
                 </div>
             </div>
-        </header>
+        </div>
     </div>
-</div>
-<!-- Main Content -->
-<div class="container custom-haojen-container">
-    <!-- Post Container -->
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-1 col-md-8 col-md-offset-1 col-sm-12 col-xs-12 post-container">
-            <!-- Main Content -->
-
-
-
-<div class="post-preview " style="background-image: url('')">
-    <a href="/2019/03/06/深度学习经历/">
-        <h2 class="post-title">
+    <div class="post-title-haojen">
+        <span>
             深度学习经历
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2019-03-06
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                Image Super-Resolution目前正在做的项目，图像超分辨率。先以mse作为损失函数，以PSNR作为评价指标，构建较为简单的网络，效果不佳，参考论文后发现，在该类任务中，颜色等特征较为重要，所以不能随便使用batch normalization，会破坏原本的颜色分布，所以在使用ba..
-            </p>
-        </div>
-    </a>
+        </span>
+    </div>
+</header>
 
-</div>
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h2 id="Image-Super-Resolution"><a href="#Image-Super-Resolution" class="headerlink" title="Image Super-Resolution"></a>Image Super-Resolution</h2><p>目前正在做的项目，图像超分辨率。先以mse作为损失函数，以PSNR作为评价指标，构建较为简单的网络，效果不佳，参考论文后发现，在该类任务中，颜色等特征较为重要，所以不能随便使用batch normalization，会破坏原本的颜色分布，所以在使用batch normalization时需要将之前的特征图用残差块传到下面去，这样结合了bn的优点，又不影响图片的色彩特征，mse作为指标会丢失细节，所以改用GAN结构，生成器将低分辨率的图像转化为高分辨率图像，对抗网络用来分类原始的高分辨率图像和生成的高分辨率图像。</p>
+<h2 id="icme2019-字节跳动短视频推荐"><a href="#icme2019-字节跳动短视频推荐" class="headerlink" title="icme2019 字节跳动短视频推荐"></a>icme2019 字节跳动短视频推荐</h2><p>推荐类题目会有很多id特征，进行展开之后会导致维度过大且非常稀疏，传统的机器学习算法很难应对这种情况，所以在这里使用了主流的xdeepfm算法，对网络进行了修改，在wordembeding层加入了dropout，由于部分id特征具有时序性，所以采用了word2vec进行编码，这样在降低维度的同时，还能保留id的时序信息，目前主要任务正在构建大型网络，主流的xdeepfm，deepfm进行结合，最后一层特征层进行concat，希望能得到更好的auc。</p>
 
-<hr>
+                <hr>
+                
 
-
-
-<div class="post-preview " style="background-image: url('')">
-    <a href="/2019/03/04/elo-merchant-category-recommendation后处理新思路/">
-        <h2 class="post-title">
-            elo merchant category recommendation后处理新思路
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2019-03-04
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                kaggle上面的elo比赛私榜放出后，使用了后处理的队伍基本全部翻车，我们团队为了稳健，在选择最终文件时选择了一份未经后处理的和一份经过后处理的结果，最终未经后处理的文件拿下了27/4128的成绩，成功获得一枚银牌，虽然未用二分类进行改值，但是实际上我们的成绩融入了二分类的结果，具体使用方式可..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview " style="background-image: url('')">
-    <a href="/2019/03/04/BDCI2018-面向电信行业存量用户的智能套餐个性化匹配模型top3解决方案/">
-        <h2 class="post-title">
-            BDCI2018-面向电信行业存量用户的智能套餐个性化匹配模型top3解决方案
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2019-03-04
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                1 赛题理解和数据探索1.1赛题理解此题利用已有的用户属性(如个人基本信息、用户画像信等)、业务属性、消费习惯及偏好等特征，对用户进行套餐推荐，从而更好的为用户服务。
-1.2 数据探索通过对数据的探索，我们发现虽然训练集给出了12类，但是999999这个类很特殊，只有2条重复数据，因此我们决定删..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview " style="background-image: url('')">
-    <a href="/2019/03/03/⼈工智能社会保险反欺诈分析top3解决方案/">
-        <h2 class="post-title">
-            ⼈工智能社会保险反欺诈分析top3解决方案
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2019-03-03
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                1. 赛题数据理理解1.1 数据整体介绍本赛题中训练集为15000个参保对象的共计1368146条历史结算明细数据， 其中包括参保⼈人ID、流⽔水号、50个脱敏敏数值特(FTR0-FTR50)、FTR51⽂本特征和发⽣时间特征，共计52维有效数据以及是否为欺诈参保⼈人的LABEL，如图1所示。测..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-
-<!-- 翻页 pager -->
-
-<ul class="pager">
-    
-    
-</ul>
-
-
-        </div>
-        <!-- Sidebar Container -->
-        <div class="
-                col-lg-3 col-lg-offset-0
-                col-md-3 col-md-offset-0
-                col-sm-12
-                col-xs-12
-                sidebar-container
-            ">
-
-            <!-- About Me -->
-            <section class="visible-md visible-lg" style="padding: 0 18px">
-                <div class="short-about">
-                    <!--侧边栏头像-->
+                <ul class="pager">
                     
-                    <img src="https://neuronblack.oss-cn-beijing.aliyuncs.com/WechatIMG52.jpeg">
                     
-                    <h5><a href="/about/">NeuornBlack</a></h5>
+                    <li class="next">
+                        <a href="/2019/03/04/elo-merchant-category-recommendation后处理新思路/" data-toggle="tooltip" data-placement="top" title="elo merchant category recommendation后处理新思路">Next Post &rarr;</a>
+                    </li>
                     
-                    <p>stay hungry stay foolish</p>
-                    
-                    <hr>
-                    <!-- SNS Link 社交 -->
-                    <ul class="list-inline">
-                        
-                        
-                        
-                        <li>
-                            <a target="_blank" href="https://www.zhihu.com/people/ge-chen-yang-83">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa  fa-stack-1x fa-inverse">知</i>
-                                        </span>
-                            </a>
-                        </li>
-                        
+                </ul>
 
-                        
+                
 
-                        
+                
 
-                        
-                        <li>
-                            <a target="_blank" href="https://github.com/NeuronBlack">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                                        </span>
-                            </a>
-                        </li>
-                        
 
+                <!--加入新的评论系统-->
+                
+
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Image-Super-Resolution"><span class="toc-text">Image Super-Resolution</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#icme2019-字节跳动短视频推荐"><span class="toc-text">icme2019 字节跳动短视频推荐</span></a></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <div style="margin-top: 20px;">
+                    <h5 class="text-center">FRIENDS</h5>
+                    <ul class="list-inline text-center">
+                        
+                        <li><a href="https://www.zhihu.com/people/jin-chen-yu-71-44/activities">Campsa‘s zhihu</a></li>
+                        
+                        <li><a href="https://www.zhihu.com/people/chen-chen-77-79-35">Snow&#39;s zhihu</a></li>
+                        
+                        <li><a href="https://mergebubble.github.io">xiaobai&#39;s blog</a></li>
                         
                     </ul>
                 </div>
-            </section>
-
-            <!-- Featured Tags  标签 -->
-            
-            <section>
-                <div class="tags">
-                    
-                </div>
-            </section>
-            
-
-            
-            <hr>
-            <h5 style="text-align: center;">Friends</h5>
-            <ul class="list-inline" style="text-align: center;">
                 
-                <li><a href="https://www.zhihu.com/people/jin-chen-yu-71-44/activities" target="_blank">Campsa‘s zhihu</a></li>
-                
-                <li><a href="https://www.zhihu.com/people/chen-chen-77-79-35" target="_blank">Snow&#39;s zhihu</a></li>
-                
-                <li><a href="https://mergebubble.github.io" target="_blank">xiaobai&#39;s blog</a></li>
-                
-            </ul>
-            
-
+            </div>
         </div>
+
     </div>
-</div>
+</article>
+
+
+
+
+
+
 
 <!-- Footer -->
 <!-- Footer -->
