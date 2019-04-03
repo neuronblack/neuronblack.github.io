@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        超分辨率研究笔记｜NeuornBlack&#39;s blog
+        天池全球AI计算挑战赛思路分享｜NeuornBlack&#39;s blog
         
     </title>
 
-    <link rel="canonical" href="http://neuronblack.github.io/2019/03/06/超分辨率研究笔记/">
+    <link rel="canonical" href="http://neuronblack.github.io/2019/04/04/天池全球AI计算挑战赛思路分享/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -136,12 +136,12 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>超分辨率研究笔记</h1>
+                    <h1>天池全球AI计算挑战赛思路分享</h1>
                     
                     <span class="meta">
                          作者 NeuornBlack
                         <span>
-                          日期 2019-03-06
+                          日期 2019-04-04
                          </span>
                     </span>
                     <div class="tags text-center">
@@ -153,7 +153,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            超分辨率研究笔记
+            天池全球AI计算挑战赛思路分享
         </span>
     </div>
 </header>
@@ -164,20 +164,16 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <p>以mse作为损失函数，以PSNR作为评价指标，构建较为简单的网络，效果不佳，参考论文后发现，在该类任务中，颜色等特征较为重要，所以不能随便使用batch normalization，会破坏原本的颜色分布，所以在使用batch normalization时需要将之前的特征图用残差块传到下面去，这样结合了bn的优点，又不影响图片的色彩特征，mse作为指标会丢失细节，所以改用GAN结构，生成器将低分辨率的图像转化为高分辨率图像，对抗网络用来分类原始的高分辨率图像和生成的高分辨率图像。</p>
+                <p>天池的这个比赛需要预测未来的时间段内不同地铁站每十分钟的人流量，我们团队在a榜使用了规则+模型的融合方案取得第四名的成绩，但是由于b榜需要预测的日期为周末，我们a榜中所用的规则直接失效，具体的<a href="https://mp.weixin.qq.com/s/hzc6u1WYu8ztaRa4m371tw" target="_blank" rel="noopener">规则</a>是由队友<a href="https://tianchi.aliyun.com/home/science/scienceDetail?userId=2074480725" target="_blank" rel="noopener">人畜无害小白兔</a>提出。<br>由于我们a榜较为依赖规则导致单模分数不是很好，直接造成了b榜雪崩，</p>
 
                 <hr>
                 
 
                 <ul class="pager">
                     
-                    <li class="previous">
-                        <a href="/2019/04/04/天池全球AI计算挑战赛思路分享/" data-toggle="tooltip" data-placement="top" title="天池全球AI计算挑战赛思路分享">&larr; Previous Post</a>
-                    </li>
-                    
                     
                     <li class="next">
-                        <a href="/2019/03/04/elo-merchant-category-recommendation后处理新思路/" data-toggle="tooltip" data-placement="top" title="elo merchant category recommendation后处理新思路">Next Post &rarr;</a>
+                        <a href="/2019/03/06/超分辨率研究笔记/" data-toggle="tooltip" data-placement="top" title="超分辨率研究笔记">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
