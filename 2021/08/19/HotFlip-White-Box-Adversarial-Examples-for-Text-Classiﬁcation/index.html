@@ -164,24 +164,24 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <h1 id="论文地址"><a href="#论文地址" class="headerlink" title="论文地址"></a>论文地址</h1><blockquote>
+                <h2 id="论文地址"><a href="#论文地址" class="headerlink" title="论文地址"></a>论文地址</h2><blockquote>
 <p><a href="https://arxiv.org/abs/1712.06751s" target="_blank" rel="noopener">https://arxiv.org/abs/1712.06751s</a></p>
 </blockquote>
-<h1 id="论文概述"><a href="#论文概述" class="headerlink" title="论文概述"></a>论文概述</h1><ul>
+<h2 id="论文概述"><a href="#论文概述" class="headerlink" title="论文概述"></a>论文概述</h2><ul>
 <li>提出了一种白盒对抗来对付char-level的分类器。</li>
 <li>使用原子级别的翻转，仅需要根据one-hot的梯度将两个token进行交换。</li>
 <li>在执行对抗训练的时候可以变得更加鲁棒。</li>
-<li>使用语义约束使得该方案也能作用于word-level的分类器。<h1 id="论文简介"><a href="#论文简介" class="headerlink" title="论文简介"></a>论文简介</h1></li>
+<li>使用语义约束使得该方案也能作用于word-level的分类器。<h2 id="论文简介"><a href="#论文简介" class="headerlink" title="论文简介"></a>论文简介</h2></li>
 <li>对抗样本是被设计用来使机器学习模型获得不佳的性能。<br>对抗样本暴露了模型表现不佳的输入空间区域，这有助于理解和改进模型，如果用这些数据作为训练样本，那么可以增强模型的鲁棒性。</li>
 <li>以前都是使用的黑盒对抗，没有任何模型参数的明确知识。</li>
 <li>在白盒攻击中，使用模型的完整知识来开发最坏情况的攻击，这可以揭示更大的漏洞。</li>
-<li>核心方法是原子翻转操作，根据模型相对于onehot输入的方向导数，将两个token进行交换<h1 id="方案详解"><a href="#方案详解" class="headerlink" title="方案详解"></a>方案详解</h1></li>
+<li>核心方法是原子翻转操作，根据模型相对于onehot输入的方向导数，将两个token进行交换<h2 id="方案详解"><a href="#方案详解" class="headerlink" title="方案详解"></a>方案详解</h2></li>
 <li>翻转可以用如下来表示，i表示第i个词，j表示第j个字符：<br><img src="https://github.com/neuronblack/image/blob/master/hotflip/1476435D-F3E2-4A03-9C0A-EFB70096AEB4.png?raw=true" alt></li>
 <li>可以从沿该向量的方向导数获得损失变化的一阶近似值<br><img src="https://github.com/neuronblack/image/blob/master/hotflip/BD37E7BD-6890-4524-9DF8-E6E35885085F.png?raw=true" alt></li>
 <li>选择梯度减少最大的方向<br><img src="https://github.com/neuronblack/image/blob/master/hotflip/9A03BD7C-3DE7-407E-98B6-108828BE9E62.png?raw=true" alt></li>
 <li>多次翻转可以使用greedy search或者beam search<h1 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h1></li>
 <li>保证新出现的word不在词表中，主要是防止修改原句的语义<br><img src="https://github.com/neuronblack/image/blob/master/hotflip/7B2E1520-CAD7-415B-ABEF-F6AD8FCF7064.png?raw=true" alt></li>
-<li>鲁棒性<br><img src="https://github.com/neuronblack/image/blob/master/hotflip/2F1386A4-DACD-4006-A829-9B52C949193A.png?raw=true" alt><h1 id="word-level"><a href="#word-level" class="headerlink" title="word-level"></a>word-level</h1></li>
+<li>鲁棒性<br><img src="https://github.com/neuronblack/image/blob/master/hotflip/2F1386A4-DACD-4006-A829-9B52C949193A.png?raw=true" alt><h2 id="word-level"><a href="#word-level" class="headerlink" title="word-level"></a>word-level</h2></li>
 <li>单词级别的对抗性操作更有可能改变文本的含义，这使得使用语义保留约束成为必要。<blockquote>
 <p>For example, changing the word good to bad changes the sentiment of the sentence “this was a good movie”. In fact, we expect the model to predict a different label after such a change.</p>
 </blockquote>
@@ -193,7 +193,7 @@
 <li>不允许替换停用词，因为对于许多停用词，很难找到替换它们仍然会使句子在语法上正确的情况。也不允许为了相同的目的将一个单词更改为具有相同词素的另一个单词。</li>
 </ul>
 </li>
-<li>使用embedding层的输出作为词的表示<br><img src="https://github.com/neuronblack/image/blob/master/hotflip/9261C5D1-BE2F-4335-8527-FB11ECF19589.png?raw=true" alt><h1 id="备注"><a href="#备注" class="headerlink" title="备注"></a>备注</h1></li>
+<li>使用embedding层的输出作为词的表示<br><img src="https://github.com/neuronblack/image/blob/master/hotflip/9261C5D1-BE2F-4335-8527-FB11ECF19589.png?raw=true" alt><h2 id="备注"><a href="#备注" class="headerlink" title="备注"></a>备注</h2></li>
 <li>原文虽然给出了word-level的方案，但是没有做实验。</li>
 <li>原文用的模型是one-hot做输入的模型，而现在常用的embedding层使用lookup的方式跳过了one-hot这个步骤，在复现的时候还是要将embedding层换为one-hot+dense的形式，现在大多数文本模型训练前加载pretrain的参数，所以实现的时候要把embedding的参数加载到dense层上，实际测试发现这两个矩阵在torch中是转置的关系。</li>
 </ul>
@@ -224,8 +224,8 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#论文地址"><span class="toc-text">论文地址</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#论文概述"><span class="toc-text">论文概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#论文简介"><span class="toc-text">论文简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#方案详解"><span class="toc-text">方案详解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实验"><span class="toc-text">实验</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#word-level"><span class="toc-text">word-level</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#备注"><span class="toc-text">备注</span></a></li></ol>
-                </div>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#论文地址"><span class="toc-text">论文地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#论文概述"><span class="toc-text">论文概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#论文简介"><span class="toc-text">论文简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方案详解"><span class="toc-text">方案详解</span></a></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#实验"><span class="toc-text">实验</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#word-level"><span class="toc-text">word-level</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#备注"><span class="toc-text">备注</span></a></li></ol>
+                </li></div>
             </div>
         </div>
 
